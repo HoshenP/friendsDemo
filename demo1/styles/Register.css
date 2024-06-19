@@ -1,0 +1,36 @@
+#container {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    border: 1px solid black;
+    border-radius: 20px;
+    margin: auto;
+    position: relative;
+    top: 150px;
+}
+
+.registerBtns {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    margin: auto;
+}
+
+#container input {
+    padding: 5px;
+    margin: 5px;
+    text-align: center;
+    border: 0.5px solid black;
+    border-radius: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: Blue;
+}

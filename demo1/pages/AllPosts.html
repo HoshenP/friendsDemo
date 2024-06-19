@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="container">
+        <div class="navbar">
+            <ul>
+                <li><a href="./AllPosts.html">AllPosts</a></li>
+                <li><a href="./AllUsers.html">AllUsers</a></li>
+                <li><a href="./LogIn.html">LogOut</a></li>
+            </ul>
+        </div>
+        <h2 id="welcomeHeader"></h2>
+        <div>
+            <button id="newPostBtn">Add New Post</button>
+        </div>
+        <dialog id="modal">
+            <span id="closeModal">X</span>
+            <h4>New Post</h4>
+            <input type="text" id="title" placeholder="type title...">
+            <input type="text" id="body" placeholder="type body...">
+            <div>
+                <button id="addNewPostBtn">Add New Post</button>
+            </div>
+        </dialog>
+        <div id="content">
+
+        </div>
+    </div>
+
+    <script type="module" src="../scripts/Home.js"></script>
+</body>
+
+</html>
