@@ -1,14 +1,18 @@
 
 let arrUsers = [];
 let currUser = JSON.parse(localStorage.getItem("userSession"));
+let frSection = document.getElementById("frSection");
+let approveBtn = document.getElementById("approveBtn");
+let declineBtn = document.getElementById("declineBtn");
 
-function showUsers(arrUsers){
+function showUsers(arr){
+    // debugger;
     $("#userContainer").text("");
-    let index = arrUsers.findIndex((user) => user.id == currUser.id);
+    let index = arr.findIndex((user) => user.id == currUser.id);
     
     // frSelect.innerHTML = ""; 
 
-    for(let i in arrUsers){
+    for(let i in arr){
         if(i!=index){
             let userCard = document.createElement("ul");
             let username = document.createElement("li");
@@ -17,24 +21,27 @@ function showUsers(arrUsers){
             let email = document.createElement("li");
             let frBTN = document.createElement("button");
 
-            username.innerHTML = `User Name: ${arrUsers[i].userName}`;
-            fname.innerHTML = `First Name: ${arrUsers[i].fname}`;
-            lname.innerHTML = `Last Name: ${arrUsers[i].lname}`;
-            email.innerHTML = `Email: ${arrUsers[i].email}`;
+            username.innerHTML = `User Name: ${arr[i].userName}`;
+            fname.innerHTML = `First Name: ${arr[i].fname}`;
+            lname.innerHTML = `Last Name: ${arr[i].lname}`;
+            email.innerHTML = `Email: ${arr[i].email}`;
             frBTN.innerHTML = "Add Friend";
             userCard.appendChild(username);
             userCard.appendChild(fname);
             userCard.appendChild(lname);
             userCard.appendChild(email);
             
-            if (currUser.id != arrUsers[i].id){
+            if (currUser.id != arr[i].id){
                 userCard.append(frBTN);
-                if ((arrUsers[i].FRI.findIndex(fro => fro == currUser.id)) != -1){
+                if ((arr[i].FRI.findIndex(fro => fro == currUser.id)) != -1){
                     frBTN.disabled = "true"
                     frBTN.innerHTML = "Friend Request Sent";
-                } else if ((arrUsers[i].AllFriends.findIndex(fro => fro == currUser.id)) != -1) {
+                } else if ((arr[i].AllFriends.findIndex(fro => fro == currUser.id)) != -1) {
                     frBTN.disabled = "true"
                     frBTN.innerHTML = "Already Friends";
+                } else if ((arr[i].FRO.findIndex(fro => fro == currUser.id)) != -1) {
+                    frBTN.disabled = "true"
+                    frBTN.innerHTML = "Request Was Sent";
                 } else {
                     frBTN.addEventListener("click", () => {
                         sendFR(i, frBTN)
@@ -54,7 +61,7 @@ function showUsers(arrUsers){
 }
 
 function sendFR(i, frBTN){
-    debugger;
+    // debugger;
     frBTN.innerHTML = "Friend Request Sent";
     frBTN.disabled = "true"
     let sndvUserIndex = arrUsers.findIndex(user => user.id == currUser.id);
@@ -64,17 +71,10 @@ function sendFR(i, frBTN){
 }
 
 function showFR(){
-    
     if(currUser.FRI.length > 0){
-        let frSection = document.getElementById("frSection");
-        let approveBtn = document.getElementById("approveBtn");
-        let declineBtn = document.getElementById("declineBtn");
-        approveBtn.addEventListener("click", function () {frReply("approve")});
-        declineBtn.addEventListener("click", function () {frReply("decline")});
         frSection.style.display = "block";
         for (let i in currUser.FRI){
             let frOption = document.createElement("option");
-
             frOption.text = currUser.FRI[i];
             frSelect.options.add(frOption);
         }
@@ -82,6 +82,7 @@ function showFR(){
 }
 
 function frReply (reply){
+    // debugger
     let frSelect = document.getElementById("frSelect");
     // let fro = frSelect.value;
     let fro = frSelect.options[frSelect.selectedIndex].value;
@@ -97,7 +98,7 @@ function frReply (reply){
         arrUsers[sndUserIndex].AllFriends.push(+currUser.id);
         arrUsers[rcvUserIndex].AllFriends.push(+fro);
     }
-    debugger;
+    // debugger;
     updateLocalStorage();
 
 }
@@ -122,21 +123,23 @@ $(document).ready(function(){
         });
         $("#showFriends").click(function(){
             let tempArr = [];
+            
             for (let i in arrUsers){
                 if ((arrUsers[i].AllFriends.findIndex(af => af == currUser.id)) != -1){
                     tempArr.push(arrUsers[i]);
                 }
             }
-            showUsers(tempArr)
+            tempArr.push(currUser);
+            showUsers(tempArr);
+            // debugger;
         });
         showUsers(arrUsers);
-      
     } else {
         container.innerHTML = "<h1>Sorry User Not Found!</h1>";
         // delay().then(() => {
         //     window.location.href = "logIn.html";
         // });
-    }
-    
-    
+    }    
 });
+approveBtn.addEventListener("click", function () {frReply("approve")});
+declineBtn.addEventListener("click", function () {frReply("decline")});
