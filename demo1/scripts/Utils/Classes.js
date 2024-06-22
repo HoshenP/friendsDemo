@@ -8,6 +8,7 @@ export default class User {
         this.password = password;
     }
 }
+
 export class Post {
     constructor(id, author, title, body) {
         this.id = id;
