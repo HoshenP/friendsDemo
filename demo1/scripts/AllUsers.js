@@ -2,9 +2,10 @@
 let arrUsers = [];
 let currUser = JSON.parse(localStorage.getItem("userSession"));
 
-function showUsers(arrUsers){
+function showUsers(arr){
+    debugger;
     $("#userContainer").text("");
-    let index = arrUsers.findIndex((user) => user.id == currUser.id);
+    let index = arr.findIndex((user) => user.id == currUser.id);
     
     for(let i in arrUsers){
         if(i!=index){
@@ -15,19 +16,19 @@ function showUsers(arrUsers){
             let email = document.createElement("li");
             let frBTN = document.createElement("button");
 
-            username.innerHTML = `User Name: ${arrUsers[i].userName}`;
-            fname.innerHTML = `First Name: ${arrUsers[i].fname}`;
-            lname.innerHTML = `Last Name: ${arrUsers[i].lname}`;
-            email.innerHTML = `Email: ${arrUsers[i].email}`;
+            username.innerHTML = `User Name: ${arr[i].userName}`;
+            fname.innerHTML = `First Name: ${arr[i].fname}`;
+            lname.innerHTML = `Last Name: ${arr[i].lname}`;
+            email.innerHTML = `Email: ${arr[i].email}`;
             frBTN.innerHTML = "Add Friend";
             userCard.appendChild(username);
             userCard.appendChild(fname);
             userCard.appendChild(lname);
             userCard.appendChild(email);
             
-            if (currUser.id != arrUsers[i].id){
+            if (currUser.id != arr[i].id){
                 userCard.append(frBTN);
-                if ((arrUsers[i].FRI.findIndex(fro => fro == currUser.id)) != -1){
+                if ((arr[i].FRI.findIndex(fro => fro == currUser.id)) != -1){
                     frBTN.disabled = "true"
                     frBTN.innerHTML = "Friend Request Sent";
                 } else if ((arrUsers[i].AllFriends.findIndex(fro => fro == currUser.id)) != -1) {
@@ -45,7 +46,7 @@ function showUsers(arrUsers){
     showFR()
 }
 function sendFR(i, frBTN){
-    debugger;
+    // debugger;
     frBTN.innerHTML = "Friend Request Sent";
     frBTN.disabled = "true"
     let sndvUserIndex = arrUsers.findIndex(user => user.id == currUser.id);
@@ -112,7 +113,7 @@ $(document).ready(function(){
             }
             showUsers(tempArr)
         });
-        // showUsers()
+        showUsers(arrUsers)
       
     } else {
         container.innerHTML = "<h1>Sorry User Not Found!</h1>";
