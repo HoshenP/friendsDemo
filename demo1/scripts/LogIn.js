@@ -1,6 +1,7 @@
 import { delay } from "../scripts/Utils/Classes.js"
 const userName = document.getElementById('userName');
-const passsword = document.getElementById('password');
+const password = document.getElementById('password');
+
 
 
 const logInHandler = async () => {
@@ -9,20 +10,19 @@ const logInHandler = async () => {
         for (let x in arrUsers) {
             let user = arrUsers[x];
             if (user.userName == userName.value) {
-                if (user.password == passsword.value) {
+                if (user.password == password.value) {
                     localStorage.setItem("userSession", JSON.stringify(user));
-                    await delay();
+                    // await delay();
                     window.location.href = "../pages/AllPosts.html";
                 } else {
                     alert("Passsword is not Valid!")
                 }
-            } else {
-                alert("UserName is Not Valid!")
-            }
-        }
+            }  
+        }           
     } else {
-        alert("Sorry Users Not Found!")
+        alert("Sorry User Not Found!")
     }
 };
 
 document.getElementById('logInBtn').addEventListener('click', logInHandler);
+// localStorage.removeItem("userSession"); 

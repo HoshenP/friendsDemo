@@ -1,0 +1,13 @@
+#userDetails {
+    display:flex;
+    flex-direction: column;
+    border: 2px blue solid;
+}
+
+ul {
+    border: 2px red solid;
+}
+
+#frSection {
+    display: none;
+}

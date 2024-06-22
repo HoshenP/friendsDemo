@@ -1,0 +1,58 @@
+[
+    {
+        "FRO": [],
+        "FRI": [],
+        "AllFriends": [],
+        "userName": "sagiv",
+        "fname": "Sagiv",
+        "lname": "Levi",
+        "email": "sagivlevi1509@gmail.com",
+        "password": "1",
+        "id": 1
+    },
+    {
+        "FRO": [],
+        "FRI": [],
+        "AllFriends": [],
+        "userName": "david",
+        "fname": "David",
+        "lname": "Cohen",
+        "email": "david@cohen.com",
+        "password": "1",
+        "id": 2
+    },
+    {
+        "FRO": [],
+        "FRI": [],
+        "AllFriends": [],
+        "userName": "shlomo",
+        "fname": "Shlomo",
+        "lname": "Topaz",
+        "email": "shlomo@topaz.com",
+        "password": "1",
+        "id": 3
+    },
+    {
+        "FRO": [],
+        "FRI": [],
+        "AllFriends": [],
+        "userName": "arik",
+        "fname": "Arik",
+        "lname": "Abutbul",
+        "email": "arik@abutbul.com",
+        "password": "1",
+        "id": 4
+    },
+    {
+        "FRO": [],
+        "FRI": [],
+        "AllFriends": [],
+        "userName": "dana",
+        "fname": "Dana",
+        "lname": "Kalish",
+        "email": "dana@kalish.com",
+        "password": "1",
+        "id": 5
+    }
+]
+    
