@@ -7,6 +7,9 @@ function showUsers(arr){
     $("#userContainer").text("");
     let index = arr.findIndex((user) => user.id == currUser.id);
     
+    frSelect.innerHTML = ""; 
+
+
     for(let i in arrUsers){
         if(i!=index){
             let userCard = document.createElement("ul");
@@ -40,8 +43,16 @@ function showUsers(arr){
                     });
                 }
             }
+
+
+
             $("#userContainer").append(userCard);
         }
+    }
+
+
+    if (currUser.FRI.length == 0) {
+        document.getElementById("frSection").style.display = "none";
     }
     showFR()
 }
@@ -52,8 +63,7 @@ function sendFR(i, frBTN){
     let sndvUserIndex = arrUsers.findIndex(user => user.id == currUser.id);
     arrUsers[sndvUserIndex].FRO.push(arrUsers[i].id);
     arrUsers[i].FRI.push(currUser.id);
-    localStorage.setItem("allUsers", JSON.stringify(arrUsers));
-    showUsers();
+    updateLocalStorage();
 }
 
 function showFR(){
@@ -67,6 +77,7 @@ function showFR(){
         frSection.style.display = "block";
         for (let i in currUser.FRI){
             let frOption = document.createElement("option");
+
             frOption.text = currUser.FRI[i];
             frSelect.options.add(frOption);
         }
@@ -81,17 +92,23 @@ function frReply (reply){
     let froIndex = arrUsers[sndUserIndex].FRO.findIndex((element) => element == currUser.id)
     let friIndex = arrUsers[rcvUserIndex].FRI.findIndex((element) => element == fro)
     arrUsers[sndUserIndex].FRO.splice(froIndex ,1);
-    arrUsers[rcvUserIndex].FRI.splice(friIndex ,1);    
+    arrUsers[rcvUserIndex].FRI.splice(friIndex ,1);   
     
     if (reply =="approve"){
         arrUsers[sndUserIndex].AllFriends.push(+currUser.id);
         arrUsers[rcvUserIndex].AllFriends.push(+fro);
     }
     debugger;
+    updateLocalStorage();
+
+}
+
+
+function updateLocalStorage(){
     localStorage.setItem("allUsers", JSON.stringify(arrUsers));
-    currUser = arrUsers[rcvUserIndex];
+    currUser = arrUsers[arrUsers.findIndex(user => user.id == currUser.id)];
     localStorage.setItem("userSession", JSON.stringify(currUser));
-    showUsers();
+    showUsers(arrUsers);
 }
     
 $(document).ready(function(){
