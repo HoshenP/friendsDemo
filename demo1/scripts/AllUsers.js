@@ -6,8 +6,7 @@ function showUsers(arrUsers){
     $("#userContainer").text("");
     let index = arrUsers.findIndex((user) => user.id == currUser.id);
     
-    frSelect.innerHTML = ""; 
-
+    // frSelect.innerHTML = ""; 
 
     for(let i in arrUsers){
         if(i!=index){
@@ -43,8 +42,6 @@ function showUsers(arrUsers){
                 }
             }
 
-
-
             $("#userContainer").append(userCard);
         }
     }
@@ -55,6 +52,7 @@ function showUsers(arrUsers){
     }
     showFR()
 }
+
 function sendFR(i, frBTN){
     debugger;
     frBTN.innerHTML = "Friend Request Sent";
@@ -85,7 +83,9 @@ function showFR(){
 
 function frReply (reply){
     let frSelect = document.getElementById("frSelect");
-    let fro = frSelect.value;
+    // let fro = frSelect.value;
+    let fro = frSelect.options[frSelect.selectedIndex].value;
+    console.log(fro);
     let sndUserIndex = arrUsers.findIndex(user => user.id == fro);
     let rcvUserIndex = arrUsers.findIndex(user => user.id == currUser.id);
     let froIndex = arrUsers[sndUserIndex].FRO.findIndex((element) => element == currUser.id)
