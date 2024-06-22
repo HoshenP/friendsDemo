@@ -40,6 +40,9 @@ function showUsers(arr){
                 } else if ((arr[i].AllFriends.findIndex(fro => fro == currUser.id)) != -1) {
                     frBTN.disabled = "true"
                     frBTN.innerHTML = "Already Friends";
+                } else if ((arr[i].FRO.findIndex(fro => fro == currUser.id)) != -1) {
+                    frBTN.disabled = "true"
+                    frBTN.innerHTML = "Request Was Sent";
                 } else {
                     frBTN.addEventListener("click", () => {
                         sendFR(i, frBTN)
