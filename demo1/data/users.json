@@ -1,6 +1,6 @@
 [
     {
-        "FRO": [],
+        "FRO": [2],
         "FRI": [],
         "AllFriends": [],
         "userName": "sagiv",
@@ -12,7 +12,7 @@
     },
     {
         "FRO": [],
-        "FRI": [],
+        "FRI": [1,3,4,5],
         "AllFriends": [],
         "userName": "david",
         "fname": "David",
@@ -22,7 +22,7 @@
         "id": 2
     },
     {
-        "FRO": [],
+        "FRO": [2],
         "FRI": [],
         "AllFriends": [],
         "userName": "shlomo",
@@ -33,7 +33,7 @@
         "id": 3
     },
     {
-        "FRO": [],
+        "FRO": [2],
         "FRI": [],
         "AllFriends": [],
         "userName": "arik",
@@ -44,7 +44,7 @@
         "id": 4
     },
     {
-        "FRO": [],
+        "FRO": [2],
         "FRI": [],
         "AllFriends": [],
         "userName": "dana",

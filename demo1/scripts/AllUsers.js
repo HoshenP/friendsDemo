@@ -1,9 +1,12 @@
 
 let arrUsers = [];
 let currUser = JSON.parse(localStorage.getItem("userSession"));
+let frSection = document.getElementById("frSection");
+let approveBtn = document.getElementById("approveBtn");
+let declineBtn = document.getElementById("declineBtn");
 
 function showUsers(arr){
-    debugger;
+    // debugger;
     $("#userContainer").text("");
     let index = arr.findIndex((user) => user.id == currUser.id);
     
@@ -67,17 +70,10 @@ function sendFR(i, frBTN){
 }
 
 function showFR(){
-    
     if(currUser.FRI.length > 0){
-        let frSection = document.getElementById("frSection");
-        let approveBtn = document.getElementById("approveBtn");
-        let declineBtn = document.getElementById("declineBtn");
-        approveBtn.addEventListener("click", function () {frReply("approve")});
-        declineBtn.addEventListener("click", function () {frReply("decline")});
         frSection.style.display = "block";
         for (let i in currUser.FRI){
             let frOption = document.createElement("option");
-
             frOption.text = currUser.FRI[i];
             frSelect.options.add(frOption);
         }
@@ -85,6 +81,7 @@ function showFR(){
 }
 
 function frReply (reply){
+    debugger
     let frSelect = document.getElementById("frSelect");
     let fro = frSelect.value;
     let sndUserIndex = arrUsers.findIndex(user => user.id == fro);
@@ -98,7 +95,7 @@ function frReply (reply){
         arrUsers[sndUserIndex].AllFriends.push(+currUser.id);
         arrUsers[rcvUserIndex].AllFriends.push(+fro);
     }
-    debugger;
+    // debugger;
     updateLocalStorage();
 
 }
@@ -137,7 +134,7 @@ $(document).ready(function(){
         // delay().then(() => {
         //     window.location.href = "logIn.html";
         // });
-    }
-    
-    
+    }    
 });
+approveBtn.addEventListener("click", function () {frReply("approve")});
+declineBtn.addEventListener("click", function () {frReply("decline")});

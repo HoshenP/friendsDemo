@@ -23,3 +23,4 @@ export class Post {
 
 //delay function!
 export const delay = () => new Promise((resolve,) => setTimeout(resolve, 1500));
+
