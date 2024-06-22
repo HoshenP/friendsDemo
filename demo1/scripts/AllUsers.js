@@ -13,7 +13,7 @@ function showUsers(arr){
     frSelect.innerHTML = ""; 
 
 
-    for(let i in arrUsers){
+    for(let i in arr){
         if(i!=index){
             let userCard = document.createElement("ul");
             let username = document.createElement("li");
@@ -37,7 +37,7 @@ function showUsers(arr){
                 if ((arr[i].FRI.findIndex(fro => fro == currUser.id)) != -1){
                     frBTN.disabled = "true"
                     frBTN.innerHTML = "Friend Request Sent";
-                } else if ((arrUsers[i].AllFriends.findIndex(fro => fro == currUser.id)) != -1) {
+                } else if ((arr[i].AllFriends.findIndex(fro => fro == currUser.id)) != -1) {
                     frBTN.disabled = "true"
                     frBTN.innerHTML = "Already Friends";
                 } else {
@@ -81,7 +81,7 @@ function showFR(){
 }
 
 function frReply (reply){
-    debugger
+    // debugger
     let frSelect = document.getElementById("frSelect");
     let fro = frSelect.value;
     let sndUserIndex = arrUsers.findIndex(user => user.id == fro);
@@ -120,15 +120,17 @@ $(document).ready(function(){
         });
         $("#showFriends").click(function(){
             let tempArr = [];
+            
             for (let i in arrUsers){
                 if ((arrUsers[i].AllFriends.findIndex(af => af == currUser.id)) != -1){
                     tempArr.push(arrUsers[i]);
                 }
             }
-            showUsers(tempArr)
+            tempArr.push(currUser);
+            showUsers(tempArr);
+            // debugger;
         });
-        showUsers(arrUsers)
-      
+        showUsers(arrUsers);
     } else {
         container.innerHTML = "<h1>Sorry User Not Found!</h1>";
         // delay().then(() => {
