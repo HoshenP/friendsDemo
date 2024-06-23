@@ -21,10 +21,10 @@ function showUsers(arr){
             let email = document.createElement("li");
             let frBTN = document.createElement("button");
 
-            username.innerHTML = `User Name: ${arr[i].userName}`;
-            fname.innerHTML = `First Name: ${arr[i].fname}`;
-            lname.innerHTML = `Last Name: ${arr[i].lname}`;
-            email.innerHTML = `Email: ${arr[i].email}`;
+            username.innerHTML = `<span class="hint">Username: </span>${arr[i].userName}`;
+            fname.innerHTML = `<span class="hint">First Name: </span>${arr[i].fname}`;
+            lname.innerHTML = `<span class="hint">Last Name: </span>${arr[i].lname}`;
+            email.innerHTML = `<span class="hint">Email: </span>${arr[i].email}`;
             frBTN.innerHTML = "Add Friend";
             userCard.appendChild(username);
             userCard.appendChild(fname);
@@ -34,14 +34,29 @@ function showUsers(arr){
             if (currUser.id != arr[i].id){
                 userCard.append(frBTN);
                 if ((arr[i].FRI.findIndex(fro => fro == currUser.id)) != -1){
-                    frBTN.disabled = "true"
-                    frBTN.innerHTML = "Friend Request Sent";
+                    // frBTN.disabled = "true"
+                    // frBTN.innerHTML = "Friend Request Sent";
+                    frBTN.style.display = "none";
+                    let friendsIcon = document.createElement("i");
+                    friendsIcon.className = "fa-solid fa-hand-holding-heart friendsIcon";
+                    userCard.appendChild(friendsIcon);
+
                 } else if ((arr[i].AllFriends.findIndex(fro => fro == currUser.id)) != -1) {
-                    frBTN.disabled = "true"
-                    frBTN.innerHTML = "Already Friends";
+                    // frBTN.disabled = "true"
+                    // frBTN.innerHTML = "Already Friends";
+                    frBTN.style.display = "none";
+                    let friendsIcon = document.createElement("i");
+                    friendsIcon.className = "fa-solid fa-user-group friendsIcon";
+                    userCard.appendChild(friendsIcon);
+
+
                 } else if ((arr[i].FRO.findIndex(fro => fro == currUser.id)) != -1) {
-                    frBTN.disabled = "true"
-                    frBTN.innerHTML = "Request Was Sent";
+                    // frBTN.disabled = "true"
+                    // frBTN.innerHTML = "Request received";
+                    frBTN.style.display = "none";
+                    let friendsIcon = document.createElement("i");
+                    friendsIcon.className = "fa-solid fa-handshake friendsIcon";
+                    userCard.appendChild(friendsIcon);
                 } else {
                     frBTN.addEventListener("click", () => {
                         sendFR(i, frBTN)
@@ -84,7 +99,7 @@ function showFR(){
 }
 
 function frReply (reply){
-    debugger;
+    // debugger;
     let frSelect = document.getElementById("frSelect");
     // let fro = frSelect.value;
     let fro = frSelect.options[frSelect.selectedIndex].value;

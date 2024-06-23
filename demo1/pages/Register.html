@@ -5,23 +5,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../styles/Register.css">
 </head>
 
 <body>
     <div id="container">
-        <button id="importBtn">Import Users</button>
+        <button id="importBtn" class="btn">Import Users</button>
         <h1>Register</h1>
-        <input type="text" id="userName" placeholder="type userName">
-        <input type="text" id="fname" placeholder="type fname">
-        <input type="text" id="lname" placeholder="type lname">
-        <input type="text" id="email" placeholder="type email">
-        <input type="text" id="password" placeholder="type password">
+        <input type="text" id="userName" placeholder="Username">
+        <input type="text" id="fname" placeholder="First name">
+        <input type="text" id="lname" placeholder="Last name">
+        <input type="text" id="email" placeholder="Email">
+        <input type="text" id="password" placeholder="Password">
         <div class="registerBtns">
-            <button id="registerBtn">Register</button>
-            <br />
-            <span>Already registed?</span><a href="../pages/LogIn.html">LogIn</a>
+            <button id="registerBtn" class="btn">Register</button>
         </div>
+        <span class="hint">Already registed?</span><a href="../pages/LogIn.html"><button class="btn">LogIn</button></a>
+
     </div>
     <script type="module" src="../scripts/Register.js"></script>
 </body>

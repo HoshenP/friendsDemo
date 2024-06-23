@@ -1,13 +1,139 @@
+body{
+    font-family: "Inter", sans-serif;
+
+    background-color: #070B09;
+    color: #E6ECE9;
+}
+
 #userDetails {
     display:flex;
     flex-direction: column;
-    border: 2px blue solid;
+    border-radius: 8px;
+    background-color: #fbfbfc;
+    color: #070B09;
+    margin: 16px;
+    padding: 10px;
+    font-size: larger;
+}
+
+#userDetails p{
+    margin-bottom: 5px;
+}
+
+#approveBtn{
+    font-size: 1rem;
+    margin-left: 30px;
+    background-color: #0dbd48;
+
+}
+
+#approveBtn:hover{
+    background-color: #09a13c;
+}
+
+#declineBtn{
+    font-size: 1rem;
+    background-color: #bd270d;
+}
+
+#declineBtn:hover{
+    font-size: 1rem;
+    background-color: #a8230b;
+}
+
+#frSection{
+    font-weight: bold;
+    margin-top: 16px;
+}
+
+
+.hint{
+    font-weight: 750;
+    font-size: 1.1rem;
+}
+
+.value{
+    font-style: italic;
+}
+
+.buttonsDiv{
+    margin: 16px;
 }
 
 ul {
-    border: 2px red solid;
+    position: relative;
+    border: none;
+    border-radius: 8px;
+    background-color: #326edd;
+    color: #ffff;
+    margin: 16px;
+    padding: 10px;
+
+}
+
+
+
+ul:nth-child(even){
+    background-color: #4b7edb;
+
+}
+
+h1{
+    margin-left: 16px;
+}
+
+.navbar ul{
+    display: flex;
+    flex-direction: row;
+    border: 2px #326edd solid;
+    border-radius: 8px;
+    background-color: #ffff;
+    color: white;
+    gap: 20px;
+}
+
+li{
+    list-style-type: none;
 }
 
 #frSection {
     display: none;
+}
+
+button{
+    padding: 6px 10px;
+    background-color: #7c130c;
+    color: #ffff;
+    border: none;
+    border-radius: 6px;
+    margin-right: 10px;
+}
+
+button:hover{
+    background-color: #63100a;
+    cursor: pointer;
+}
+
+button:disabled,
+button[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
+
+button:disabled:hover,
+button[disabled]:hover{
+    cursor: default;
+
+}
+
+
+.friendsIcon{
+    position: absolute;
+    top: 16px;
+    right: 45px;
+}
+
+ul button{
+    margin-top: 10px;
 }

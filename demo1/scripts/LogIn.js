@@ -13,7 +13,7 @@ const logInHandler = async () => {
                 if (user.password == password.value) {
                     localStorage.setItem("userSession", JSON.stringify(user));
                     // await delay();
-                    window.location.href = "../pages/AllPosts.html";
+                    window.location.href = "../pages/AllUsers.html";
                 } else {
                     alert("Passsword is not Valid!")
                 }

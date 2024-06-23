@@ -1,3 +1,10 @@
+body{
+    font-family: "Inter", sans-serif;
+
+    background-color: #070B09;
+    color: #E6ECE9;
+}
+
 #container {
     display: flex;
     flex-direction: column;
@@ -5,14 +12,14 @@
     justify-content: center;
     align-items: center;
     padding: 15px;
-    border: 1px solid black;
+    border: 5px solid #326edd;
     border-radius: 20px;
     margin: auto;
     position: relative;
     top: 150px;
+    background-color: #326edd;
 }
-
-.registerBtns {
+.logInBtn{
     display: flex;
     flex-direction: column;
     width: fit-content;
@@ -23,14 +30,38 @@
 }
 
 #container input {
-    padding: 5px;
-    margin: 5px;
-    text-align: center;
-    border: 0.5px solid black;
-    border-radius: 10px;
+        font-size: 1rem;
+        padding: 10px;
+        margin: 8px 8px 8px 8px;
+        color: #0A0C0A;
+        background-color: rgb(240, 240, 240);
+        width: 450px;
+        border: 0;
+        border-radius: 8px;
 }
 
-a {
-    text-decoration: none;
-    color: Blue;
+.btn{
+    background-color: #1e3b70;
+    padding: 8px 14px;
+    color: #ffff;
+    border: none;
+    border-radius: 6px;
+    margin-right: 10px;
+    font-size: 1.25rem;
+}
+
+.btn:hover{
+    background-color: #182e58;
+    cursor: pointer;
+}
+
+#registerBtn{
+    font-size: 1.35rem;
+}
+
+.hint{
+    font-weight: 750;
+    font-size: 1.1rem;
+    margin-bottom:  6px;
+    margin-top: 16px;
 }

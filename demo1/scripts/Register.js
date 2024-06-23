@@ -49,6 +49,9 @@ const registerHandler = () => {
             fname.value, lname.value, email.value, password.value);
         localStorage.setItem("allUsers", JSON.stringify([newUser]));
     }
+    window.location.href = "../pages/LogIn.html";
+
+
 }
 
 document.getElementById("registerBtn").addEventListener("click", registerHandler);
