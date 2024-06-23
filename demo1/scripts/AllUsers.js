@@ -71,6 +71,8 @@ function sendFR(i, frBTN){
 }
 
 function showFR(){
+    // debugger;
+    frSelect.innerHTML = "";
     if(currUser.FRI.length > 0){
         frSection.style.display = "block";
         for (let i in currUser.FRI){
@@ -82,11 +84,11 @@ function showFR(){
 }
 
 function frReply (reply){
-    // debugger
+    debugger;
     let frSelect = document.getElementById("frSelect");
     // let fro = frSelect.value;
     let fro = frSelect.options[frSelect.selectedIndex].value;
-    console.log(fro);
+    // console.log(fro);
     let sndUserIndex = arrUsers.findIndex(user => user.id == fro);
     let rcvUserIndex = arrUsers.findIndex(user => user.id == currUser.id);
     let froIndex = arrUsers[sndUserIndex].FRO.findIndex((element) => element == currUser.id)
